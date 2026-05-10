@@ -1,0 +1,15 @@
+# Run Jenkins container
+docker run -d --name jenkins -p 8081:8080 -p 50000:50000 jenkins/jenkins:lts
+
+# Check running containers
+docker ps
+
+# Create Jenkins agent container
+docker run -d --name jenkins-agent \
+-e JENKINS_URL=http://host.docker.internal:8081 \
+-e JENKINS_AGENT_NAME=docker-agent \
+-e JENKINS_SECRET=YOUR_SECRET \
+jenkins/inbound-agent
+
+# Check agent logs
+docker logs jenkins-agent
