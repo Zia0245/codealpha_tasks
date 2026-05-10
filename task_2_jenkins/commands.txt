@@ -8,7 +8,7 @@ docker ps
 docker run -d --name jenkins-agent \
 -e JENKINS_URL=http://host.docker.internal:8081 \
 -e JENKINS_AGENT_NAME=docker-agent \
--e JENKINS_SECRET=YOUR_SECRET \
+-e JENKINS_SECRET=YOUR_SECRET_Key \
 jenkins/inbound-agent
 
 # Check agent logs
